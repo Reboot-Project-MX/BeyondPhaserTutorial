@@ -3,18 +3,24 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <title>Hello World Phaser - Beyond Tutorial</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
     <style type="text/css">
         body {
-            margin: 0;
+            font-family: sans-serif;
+            margin: auto;
+            color: white;
+            background-color: black;
         }
     </style>
 </head>
 
 <body>
+    <p style="padding: 4px;">Proximamente, mientras ... <a
+            href="https://github.com/Reboot-Project-MX/BeyondPhaserTutorial" style="color:orangered" target="_blank">Git
+            Hub</a></p>
 
     <script type="text/javascript">
 
@@ -53,7 +59,7 @@
 
         function preload() {
             // Declare background asset
-            this.load.image('jungle', 'assets/background_mobile.jpg');
+            this.load.image('jungle', 'assets/background_mobile.png');
             this.load.image('ground', 'assets/platform.png');
             this.load.image('star', 'assets/star.png');
             this.load.image('bomb', 'assets/bomb.png');
@@ -69,7 +75,7 @@
 
             //  Here we create the ground.
             //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-            platforms.create(0, 550, 'ground').refreshBody();
+            platforms.create(0, 512, 'ground').refreshBody();
 
             //  Now let's create some ledges
             // platforms.create(600, 400, 'ground');
@@ -136,7 +142,7 @@
 
             this.physics.add.collider(player, bombs, hitBomb, null, this);
 
-            buttonLeft = this.add.text(32, 612, '<=')
+            buttonLeft = this.add.text(32, 560, '<=')
                 .setOrigin(0.5)
                 .setPadding(16)
                 .setStyle({ backgroundColor: 'green' })
@@ -144,7 +150,7 @@
                 .on('pointerdown', () => { this.isMovingLeft = true })
                 .on('pointerup', () => { this.isMovingLeft = false })
 
-            buttonRight = this.add.text(332, 612, '=>')
+            buttonRight = this.add.text(332, 560, '=>')
                 .setOrigin(0.5)
                 .setPadding(16)
                 .setStyle({ backgroundColor: 'green' })
